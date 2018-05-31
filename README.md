@@ -12,7 +12,7 @@ With Jam.py you can create, customise, test and share awesome, fast, event-drive
 
 How was this Demo published on Heroku?
 ------------------------------------
-The Jam.py Demo you see on Heroku is just a Git repo made from the original Jam.py Demo with added two files: requirements.txt and Procfile.
+The Jam.py Demo you see on Heroku is just a Git repo made from the original Jam.py Demo with two files added: requirements.txt and Procfile.
 
 Then the Heroku account was open, jampy App created, Git repo linked and deployed. In 10 seconds it magically appeared as a live Web site. Enjoy.
 

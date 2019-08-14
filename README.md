@@ -4,6 +4,11 @@
 [![Coverage Status](https://coveralls.io/repos/github/platipusica/jam-py/badge.svg?branch=master)](https://coveralls.io/github/platipusica/jam-py?branch=master)
 ![Python versions](https://img.shields.io/pypi/pyversions/python3-saml.svg)
 
+<!-- View Source Button -->
+<a href="https://glitch.com/edit/#!/platipusica-jampy-demo">
+  <img src="https://cdn.glitch.com/2bdfb3f8-05ef-4035-a06e-2043962a3a13%2Fview-source%402x.png?1513093958802" alt="view source" height="33">
+</a>
+
 Make a stunning database apps for your business really fast, for **free**. This is the Demo for **Heroku** which you can access from here:
 
 https://jampy.herokuapp.com/

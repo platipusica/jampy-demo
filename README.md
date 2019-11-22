@@ -13,7 +13,9 @@ Make a stunning database apps for your business really fast, for **free**. This 
 
 https://jampy.herokuapp.com/
 
-With Jam.py you can create, customise, test and share awesome, fast, event-driven applications for SQLite, Oracle, MySQL, PostgreSQL and Firebird. All of that for free and no vendor lock-in!
+With Jam.py you can create, customise, test and share awesome, fast, event-driven applications for SQLite, Oracle, MySQL, PostgreSQL and Firebird. All of that for free and no vendor lock-in:
+
+http://jampyapplicationbuilder.com/
 
 How was this Demo published on Heroku?
 ------------------------------------

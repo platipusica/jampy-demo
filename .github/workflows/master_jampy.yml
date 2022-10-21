@@ -65,6 +65,6 @@ jobs:
           app-name: 'jampy'
           slot-name: 'Production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4EAD3A94755445C98F797A1E3FDC72E4 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D9338A9A73A94E1983FDA0D4BA91B6FE }}
           scm-do-build-during-deployment: true
           enable-oryx-build: true

@@ -16,6 +16,7 @@ https://jampyapp.pythonanywhere.com/
 With Jam.py you can create, customise, test and share awesome, fast, event-driven applications for SQLite, Oracle, MySQL, PostgreSQL, Firebird and SQLCipher. All of that for free and no vendor lock-in:
 
 https://jam-py.com
+
 https://jampyapplicationbuilder.com/
 
 

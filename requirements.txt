@@ -1,2 +1,3 @@
 gunicorn
+password-strength
 #jam.py

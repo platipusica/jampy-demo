@@ -21,7 +21,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body {
-    background-image: url('/static/files/garett-mizunaka-xFjti9rYILo-unsplash.jpg');
     background-size: cover;
     font: 16px/1.7 Roboto, "Helvetica Neue", Helvetica, arial, sans-serif;
 	font-weight: 300;

@@ -9,19 +9,14 @@
   <img src="https://cdn.glitch.com/2bdfb3f8-05ef-4035-a06e-2043962a3a13%2Fview-source%402x.png?1513093958802" alt="view source" height="33">
 </a>
 
-Make a stunning database apps for your business really fast, for **free**. This is the Demo for **Heroku** which you can access from here:
+Make a stunning database apps for your business really fast, for **free**. This is the Demo for **PythonAnywhere** and **Azure** which you can access from here:
 
-https://jampy.herokuapp.com/
+https://jampyapp.pythonanywhere.com/
 
-With Jam.py you can create, customise, test and share awesome, fast, event-driven applications for SQLite, Oracle, MySQL, PostgreSQL and Firebird. All of that for free and no vendor lock-in:
+With Jam.py you can create, customise, test and share awesome, fast, event-driven applications for SQLite, Oracle, MySQL, PostgreSQL, Firebird and SQLCipher. All of that for free and no vendor lock-in:
 
-http://jampyapplicationbuilder.com/
-
-How was this Demo published on Heroku?
-------------------------------------
-The Jam.py Demo you see on Heroku is just a Git repo made from the original Jam.py Demo with two files added: requirements.txt and Procfile.
-
-Then the Heroku account was open, jampy App created, Git repo linked and deployed. In 10 seconds it magically appeared as a live Web site. Enjoy.
+https://jam-py.com
+https://jampyapplicationbuilder.com/
 
 
 Why using Jam.py?
@@ -66,10 +61,12 @@ Installation
 
 ### Dependencies
 
- * python 2.7 // python 3.6
+ * python 2.7 // python 3.x
  * For MySQL database access: mysqlclient, libmysqlclient-dev
  * For Oracle database access: cx_oracle
  * For Firebird database access: fdb
+ * For SQLCipher database access: https://github.com/sqlcipher/sqlcipher
+ * For SQLCipher database access on Windows: compile by yourself or download from Jam maillist
  * For Jam.py Reports editing/creation: LibreOffice
 
 ## Installing an official release with pip

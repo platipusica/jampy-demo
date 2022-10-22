@@ -1,242 +1,300 @@
 <!DOCTYPE html>
  
 <html lang="en">
-  <head>
-    <meta charset="utf-8">  
-    <title>Jam.py demo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/static/img/j.png" type="image/png">
+    <head>
+        <meta charset="utf-8">  
+        <title>Jam.py demo</title> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="static/img/j.png" type="image/png">
+    
+        <link href="jam/css/bootstrap-flatly.css" rel="stylesheet">            <!--do not modify-->
+        <link href="jam/css/bootstrap-responsive.css" rel="stylesheet">
+        <link href="jam/css/bootstrap-modal.css" rel="stylesheet">
+        <link href="jam/css/datepicker.css" rel="stylesheet">
+        <link href="jam/css/jam.css" rel="stylesheet">                  <!--do not modify-->   
+        <link href="css/project.css" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css"> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+        <link href="css/jquery.entropizer.css" rel="stylesheet">    
 
-    <link href="jam/css/bootstrap-cerulean.css" rel="stylesheet">            <!--do not modify-->
-    <link href="jam/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="jam/css/bootstrap-modal.css" rel="stylesheet">
-    <link href="jam/css/datepicker.css" rel="stylesheet">
-    <link href="jam/css/jam.css" rel="stylesheet">                  <!--do not modify-->   
-    <link href="css/project.css" rel="stylesheet">
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122962025-2"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122962025-3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-122962025-2');
-</script>
- 
-  <body>
-    <div id="container" class="container">
-        <div class="row-fluid">
-            <div class="span6 logging-info">
-                <span id="user-info"></span>
-                <a href="#" id="log-out" style="display: none">&nbsp;&nbsp;&nbsp;Log out</a>
+  gtag('config', 'UA-122962025-3');    
+</script>  
+    </head>
+    <body>
+        <div id="container" class="container" style="display: none">
+            <div class="row-fluid">
+                <div class="span6">
+                    <h3 id="app-title" class="muted"></h3>
+                </div>
+                <div id="app-user" class="span6">
+                    <span id="user-info"></span>
+                    <a id="log-out" href="#" style="display: none">Log out</a>
+                </div>
             </div>
-        </div>
-        <div class="container" style="width: auto;">        
-            <div id="taskmenu" class="navbar" style="display: none">        
+            <div id="taskmenu" class="navbar">        
                 <div class="navbar-inner">
                     <ul id="menu" class="nav">
                     </ul>
                     <ul id="menu-right" class="nav pull-right">
+                        <li id="pass"><a href="#">Change password</a></li>
                         <li id="admin"><a href="#">Application builder</a></li>
-                        <li id="about"><a href="#">About</a></li>              
-                        <li id="help"><a href="http://jam-py.com/docs" target="_blank">Help</a></li>                                                
-                        <li id="github"><a href="https://github.com/platipusica/jampy-demo" target="_blank">Github</a></li>                                                
-                        <li id="jam"><a href="http://jam-py.com/" target="_blank">Jam.py</a></li>                        
+                        <li id="about"><a href="#">About</a></li>                        
+                        <li id="jam"><a href="https://jampyapplicationbuilder.com/" target="_blank">Jam.py</a></li>                        
+                        <li id="help"><a href="https://jampyapplicationbuilder.com/tips/migration/access.html#some-migrated-examples" target="_blank">Help</a></li>                        
                     </ul>
                 </div>
             </div>            
+            <div id="content">
+            </div>
         </div>
-        <div id="content">
-        </div>
-    </div>
+    
+        <div class="templates" style="display: none">
+            
+            <div class="default-top-view">
+                <div class="form-header">
+                    <button id="new-btn" class="btn expanded-btn" type="button">
+                        <i class="icon-plus"></i> New<small class="muted">&nbsp;[Ctrl+Ins]</small>
+                    </button>
+                    <button id="edit-btn" class="btn expanded-btn" type="button">
+                        <i class="icon-edit"></i> Edit
+                    </button>
+                    <div id="report-btn" class="btn-group dropdown">
+                        <a class="btn expanded-btn dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="icon-print"></i> Reports
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu bottom-up">
+                        </ul>
+                    </div>
+                    <button id="delete-btn" class="btn expanded-btn pull-right" type="button">
+                        <i class="icon-trash"></i> Delete<small class="muted">&nbsp;[Ctrl+Del]</small>
+                    </button>
+                </div>
+                <div class="form-body">
+                    <div class="view-table"></div>
+                    <div class="view-detail"></div>
+                </div>
+            </div>
+    
+            <div class="default-view">
+                <div class="form-body">
+                    <div class="view-table"></div>
+                    <div class="view-detail"></div>
+                </div>
+                <div class="form-footer">
+                    <button id="delete-btn" class="btn expanded-btn pull-left" type="button">
+                        <i class="icon-trash"></i> Delete<small class="muted">&nbsp;[Ctrl+Del]</small>
+                    </button>
+                    <div id="report-btn" class="btn-group dropup">
+                        <a class="btn expanded-btn dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="icon-print"></i> Reports
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu bottom-up">
+                        </ul>
+                    </div>
+                    <button id="edit-btn" class="btn expanded-btn" type="button">
+                        <i class="icon-edit"></i> Edit
+                    </button>
+                    <button id="new-btn" class="btn expanded-btn" type="button">
+                        <i class="icon-plus"></i> New<small class="muted">&nbsp;[Ctrl+Ins]</small>
+                    </button>
+                </div>
+            </div>
+            <div class="test-view">
+                <div class="form-body">
+                    <div class="view-table"></div>
+                </div>
+            </div>    
 
-    <div class="templates" style="display: none">
+            <div class="change_password-edit">
+                    <div class="form-body">
+                        <div class="edit-body"></div>
+                    </div>
+                    <div>  
+                        <div id="new_password_strength_meter">
+                            <p class="text-center text-info">
+                            Your password needs to be strong; a wide-range of letters, numbers and symbols, or long passwords will achieve this.  Passwords with more than 80 bits of entropy should meet this requirement. You'll see the bar sliding!<br>
+                            </p>
+                        </div>    
+                    </div>
+                    <div class="form-footer">
+                        <button type="button" id="ok-btn" class="btn expanded-btn">
+                            <i class="icon-ok"></i> OK<small class="muted">&nbsp;[Ctrl+Enter]</small>
+                        </button>
+                    </div>                    
+            </div>    
+    
+            <div class="default-top-edit">
+                <div class="form-header">            
+                    <button type="button" id="ok-btn" class="btn expanded-btn">
+                        <i class="icon-ok"></i> OK<small class="muted">&nbsp;[Ctrl+Enter]</small>
+                    </button>
+                    <button type="button" id="cancel-btn" class="btn expanded-btn">
+                        <i class="icon-remove"></i> Cancel
+                    </button>
+                </div>
+                <div class="form-body">
+                    <div class="edit-body"></div>
+                    <div class="edit-detail"></div>
+                </div>
+            </div>
+    
+            <div class="default-edit">
+                <div class="form-body">
+                    <div class="edit-body"></div>
+                    <div class="edit-detail"></div>
+                </div>
+                <div class="form-footer">
+                    <button type="button" id="ok-btn" class="btn expanded-btn">
+                        <i class="icon-ok"></i> OK<small class="muted">&nbsp;[Ctrl+Enter]</small>
+                    </button>
+                    <button type="button" id="cancel-btn" class="btn expanded-btn">
+                        <i class="icon-remove"></i> Cancel
+                    </button>
+                </div>
+            </div>
+     
+            <div class="default-param">
+                <div class="form-body">
+                    <div class="edit-body">
+                    </div>
+                </div>
+                <div class="form-footer">
+                    <select id='extension' class="pull-left" style="width: 60px">
+                        <option>pdf</option>
+                        <option>ods</option>
+                        <option>xls</option>
+                        <option>html</option>
+                    </select>
+                    <button type="button" id="ok-btn" class="btn expanded-btn">
+                        <i class="icon-print"></i> Print
+                    </button>
+                    <button type="button" id="cancel-btn" class="btn expanded-btn">
+                        <i class="icon-remove"></i> Close
+                    </button>
+                </div>
+            </div>
+    
+            <div class="default-filter">
+                <div class="form-body">
+                    <div class="edit-body">
+                    </div>
+                </div>
+                <div class="form-footer">
+                    <button type="button" id="ok-btn" class="btn expanded-btn">
+                        <i class="icon-filter"></i> Apply
+                    </button>
+                    <button type="button" id="cancel-btn" class="btn expanded-btn">
+                        <i class="icon-remove"></i> Close
+                    </button>
+                </div>
+            </div>
+    
+            <div class="dashboard-view">
+                <div class="row-fluid">
+                    <div class="span6">                
+                        <canvas id="cutomers-canvas"></canvas>                
+                        <div id="customer-table"></div>
+                    </div>                            
+                    <div class="span6">                        
+                        <canvas id="tracks-canvas"></canvas>
+                        <div id="tracks-table"></div>
+                    </div>                
+                </div>
+            </div>
+    
+            <div class="about">
+                <a href=https://jampyapplicationbuilder.com/"" target="_blank"><h3>Jam.py</h3></a>
+                <h3>Demo application</h3>
+                <p>by Andrew Yushev & Dean D. Babic</p>
+                <p>2015-2022</p>
+            </div>
+    
+    
+            <form id="login-form" target="dummy" class="form-horizontal" data-caption="Log in" style="margin: 10px 0 0; padding: 0px">
+                <div class="control-group">
+                    <label class="control-label" for="input-login">Login</label>
+                    <div class="controls">
+                        <input type="text" id="input-login" name="login" tabindex="1" placeholder="login">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="input-password">Password</label>
+                    <div class="controls">
+                        <input type="password" id="input-password" name="password" tabindex="2" placeholder="password" autocomplete="on">
+                    </div>
+                </div>
+                <div class="form-footer">
+                    <input type="submit" class="btn expanded-btn pull-right" id="login-btn" value="OK" tabindex="3">
+                </div>
+            </form>
+            
+        </div>
         
-        <div class="default-view">
-            <div class="form-body">
-                <div class="view-table"></div>
-                <div class="view-detail"></div>
-            </div>
-            <div class="form-footer">
-                <button id="delete-btn" class="btn expanded-btn pull-left" type="button">
-                    <i class="icon-trash"></i> Delete<small class="muted">&nbsp;[Ctrl+Del]</small>
-                </button>
-                <div id="report-btn" class="btn-group dropup">
-                    <a class="btn expanded-btn dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="icon-print"></i> Reports
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu bottom-up">
-                    </ul>
-                </div>
-                <button id="edit-btn" class="btn expanded-btn" type="button">
-                    <i class="icon-edit"></i> Edit
-                </button>
-                <button id="new-btn" class="btn expanded-btn" type="button">
-                    <i class="icon-plus"></i> New<small class="muted">&nbsp;[Ctrl+Ins]</small>
-                </button>
-            </div>
-        </div>
+        <iframe src="dummy.html" name="dummy" style="display: none"></iframe>
+    
+        <script src="jam/js/jquery.js"></script>
+        <script src="jam/js/bootstrap.js"></script>
+        <script src="jam/js/bootstrap-modal.js"></script>
+        <script src="jam/js/bootstrap-modalmanager.js"></script>
+        <script src="jam/js/bootstrap-datepicker.js"></script>
+        <script src="jam/js/jquery.maskedinput.js"></script>    
+        <script src="jam/js/jam.js"></script>
+        <script src="static/js/Chart.min.js"></script>
+        <!-- <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script> -->
+        <script src="static/js/entropizer.min.js"></script>
+        <script src="static/js/jquery-entropizer.min.js"></script>
+    
+    
+    
+        <script>
+        $(document).ready(function(){
+            task.load();
+          });
+        // Simple JavaScript Templating
+        // John Resig - https://johnresig.com/ - MIT Licensed
+        (function(){
+          var cache = {};
+           
+          this.tmpl = function tmpl(str, data){
+            // Figure out if we're getting a template, or if we need to
+            // load the template - and be sure to cache the result.
+            var fn = !/\W/.test(str) ?
+              cache[str] = cache[str] ||
+                tmpl(document.getElementById(str).innerHTML) :
+               
+              // Generate a reusable function that will serve as a template
+              // generator (and which will be cached).
+              new Function("obj",
+                "var p=[],print=function(){p.push.apply(p,arguments);};" +
+                 
+                // Introduce the data as local variables using with(){}
+                "with(obj){p.push('" +
+                 
+                // Convert the template into pure JavaScript
+                str
+                  .replace(/[\r\t\n]/g, " ")
+                  .split("<%").join("\t")
+                  .replace(/((^|%>)[^\t]*)'/g, "$1\r")
+                  .replace(/\t=(.*?)%>/g, "',$1,'")
+                  .split("\t").join("');")
+                  .split("%>").join("p.push('")
+                  .split("\r").join("\\'")
+              + "');}return p.join('');");
+             
+            // Provide some basic currying to the user
+            return data ? fn( data ) : fn;
+          };
+        })();          
+        </script>
 
-        <div class="default-edit">
-            <div class="form-body">
-                <div class="edit-body"></div>
-                <div class="edit-detail"></div>
-            </div>
-            <div class="form-footer">
-                <button type="button" id="ok-btn" class="btn btn-ary expanded-btn">
-                    <i class="icon-ok"></i> OK<small class="muted">&nbsp;[Ctrl+Enter]</small>
-                </button>
-                <button type="button" id="cancel-btn" class="btn expanded-btn">
-                    <i class="icon-remove"></i> Cancel
-                </button>
-            </div>
-        </div>
- 
-        <div class="default-param">
-            <div class="form-body">
-                <div class="edit-body">
-                </div>
-            </div>
-            <div class="form-footer">
-                <select id='extension' class="pull-left" style="width: 60px">
-                    <option>pdf</option>
-                    <option>ods</option>
-                    <option>xls</option>
-                    <option>html</option>
-                </select>
-                <button type="button" id="ok-btn" class="btn expanded-btn">
-                    <i class="icon-print"></i> Print
-                </button>
-                <button type="button" id="cancel-btn" class="btn expanded-btn">
-                    <i class="icon-remove"></i> Close
-                </button>
-            </div>
-        </div>
-
-        <div class="default-filter">
-            <div class="form-body">
-                <div class="edit-body">
-                </div>
-            </div>
-            <div class="form-footer">
-                <button type="button" id="ok-btn" class="btn expanded-btn">
-                    <i class="icon-filter"></i> Apply
-                </button>
-                <button type="button" id="cancel-btn" class="btn expanded-btn">
-                    <i class="icon-remove"></i> Close
-                </button>
-            </div>
-        </div>
-
-        <div class="invoices-edit">
-            <div class="form-body">
-                <div class="edit-body"></div>
-                <div class="edit-detail"></div>
-            </div>
-            <div class="form-footer">
-                <button id="select-btn" class="btn expanded-btn pull-left" type="button">
-                    <i class="icon-edit"></i> Select
-                </button>                    
-                <button type="button" id="ok-btn" class="btn btn-ary expanded-btn">
-                    <i class="icon-ok"></i> OK<small class="muted">&nbsp;[Ctrl+Enter]</small>
-                </button>
-                <button type="button" id="cancel-btn" class="btn expanded-btn">
-                    <i class="icon-remove"></i> Cancel
-                </button>
-            </div>
-        </div>
-
-        <div class="customers-view">
-            <div class="form-body">
-                <div class="view-table"></div>
-                <div class="view-detail"></div>
-            </div>
-            <div class="form-footer">
-                <button id="delete-btn" class="btn expanded-btn pull-left" type="button">
-                    <i class="icon-trash"></i> Delete<small class="muted">&nbsp;[Ctrl+Del]</small>
-                </button>
-                <button style="display: none" id="email-btn" class="btn expanded-btn" type="button">
-                    <i class="icon-pencil"></i> Send email
-                </button>                
-                <button style="display: none" id="print-btn" class="btn expanded-btn" type="button">
-                    <i class="icon-print"></i> Print
-                </button>                
-                <div id="report-btn" class="btn-group dropup">
-                    <a class="btn expanded-btn dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="icon-print"></i> Reports
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu bottom-up">
-                    </ul>
-                </div>
-                <button id="edit-btn" class="btn expanded-btn" type="button">
-                    <i class="icon-edit"></i> Edit
-                </button>
-                <button id="new-btn" class="btn expanded-btn" type="button">
-                    <i class="icon-plus"></i> New<small class="muted">&nbsp;[Ctrl+Ins]</small>
-                </button>
-            </div>
-        </div>
-
-        <div class="dashboard-view">
-            <div class="row-fluid">
-                <div class="span6">                
-                    <canvas id="cutomers-canvas"></canvas>                
-                    <div id="customer-table"></div>
-                </div>                            
-                <div class="span6">                        
-                    <canvas id="tracks-canvas"></canvas>
-                    <div id="tracks-table"></div>
-                </div>                
-            </div>
-        </div>
-
-        <div class="about">
-            <a href="http://jam-py.com/" target="_blank"><h3>Jam.py</h3></a>
-            <p>Welcome to Jam.py Demo application with sqlite3 Database.</p>
-            <p>Please review the Application Builder, Task Client Module, where the most JS code is.</p>            
-            <p>Everything else is pretty much automated, no coding involved!</p>            
-            <p>Thanks for visiting</p>
-            <p>Andrew Yushev</p>
-            <p>2015-2018</p>
-        </div>
-
-        <form id="login-form" target="dummy" class="form-horizontal" data-caption="Log in" style="margin: 10px 0 0; padding: 0px">
-            <div class="control-group">
-                <label class="control-label" for="inputLoging">Login</label>
-                <div class="controls">
-                    <input type="text" id="inputLoging" name="username" tabindex="1" placeholder="login">
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="inputPassword">Password</label>
-                <div class="controls">
-                    <input type="password" id="inputPassword" name="password" tabindex="2" placeholder="password" autocomplete="on">
-                </div>
-            </div>
-            <div class="form-footer">
-                <input type="submit" class="btn expanded-btn pull-right" id="login-btn" value="OK" tabindex="3">
-            </div>
-        </form>
-        
-    </div>
-    <iframe src="dummy.html" name="dummy" style="display: none"></iframe>
-
-    <script src="jam/js/jquery.js"></script>
-    <script src="jam/js/bootstrap.js"></script>
-    <script src="jam/js/bootstrap-modal.js"></script>
-    <script src="jam/js/bootstrap-modalmanager.js"></script>
-    <script src="jam/js/bootstrap-datepicker.js"></script>
-    <script src="jam/js/jam.js"></script>
-    <script src="static/js/Chart.min.js"></script>
-
-
-    <script>
-    $(document).ready(function(){
-        task.load();
-      });
-    </script>
-
-  </body>
+    </body>
 </html>

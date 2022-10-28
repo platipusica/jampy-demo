@@ -11,7 +11,11 @@
 
 Make a stunning database apps for your business really fast, for **free**. This is the Demo for **PythonAnywhere** and **Azure** which you can access from here:
 
-https://jampyapp.pythonanywhere.com/
+* `SAP Theme Demo <https://jampyapp.pythonanywhere.com/>`_
+* `Personal Account Ledger from MS Access template <https://msaccess.pythonanywhere.com/>`_
+* `The ERP POC Demo with Italian and English translations <https://sem.pythonanywhere.com/>`_
+* `Jam.py Assets/Parts Application (wip) <https://jampy.pythonanywhere.com>`_
+
 
 With Jam.py you can create, customise, test and share awesome, fast, event-driven applications for SQLite, Oracle, MySQL, PostgreSQL, Firebird and SQLCipher. All of that for free and no vendor lock-in:
 

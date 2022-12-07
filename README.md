@@ -15,7 +15,7 @@ Make a stunning database apps for your business really fast, for **free**. This 
 * Personal Account Ledger from MS Access template: https://msaccess.pythonanywhere.com
 * Northwind Traders from MS Access template: https://northwind.pythonanywhere.com
 * The ERP POC Demo with Italian and English translations: https://sem.pythonanywhere.com
-* Jam.py Assets/Parts Application (wip) <https://jampy.pythonanywhere.com
+* Jam.py Assets/Parts Application (wip) https://jampy.pythonanywhere.com
 
 
 With Jam.py you can create, customise, test and share awesome, fast, event-driven applications for SQLite, Oracle, MySQL, PostgreSQL, Firebird and SQLCipher. All of that for free and no vendor lock-in:

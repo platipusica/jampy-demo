@@ -11,7 +11,7 @@
 
 Make a stunning database apps for your business really fast, for **free**. This is the Demo for **PythonAnywhere** and **Azure** which you can access from here:
 
-* `SAP Theme Demo <https://jampyapp.pythonanywhere.com/>`_
+* SAP Theme Demo: https://jampyapp.pythonanywhere.com
 * `Personal Account Ledger from MS Access template <https://msaccess.pythonanywhere.com/>`_
 * `The ERP POC Demo with Italian and English translations <https://sem.pythonanywhere.com/>`_
 * `Jam.py Assets/Parts Application (wip) <https://jampy.pythonanywhere.com>`_
